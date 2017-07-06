@@ -7,14 +7,29 @@ $(document).ready(function(){
 
     var request = $.ajax({
         url:"https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json",
-        data: status
+        data: {status, feed}
     });
 
     request.done(function(feed){
         console.log(feed);
         var rssDigg = status;
-        console.log(status);
+        alert(status);
+        for(var i=0;i<feed.length;i++){
+  	 			console.log(feed[i]);
+  	 			var feedObjects = {
+  	 				
+          }
     });
+
+
+//
+//
+//
+//
+//
+//
+//
+//
 
     var request = $.ajax({
         url:"https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json",
