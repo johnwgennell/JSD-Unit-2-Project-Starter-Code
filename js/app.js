@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     var request = $.ajax({
         url:"https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json",
-        data: {status, feed}
+        success: {status, feed}
     });
 
     request.done(function(feed){
@@ -17,7 +17,7 @@ $(document).ready(function(){
         for(var i=0;i<feed.length;i++){
   	 			console.log(feed[i]);
   	 			var feedObjects = {
-  	 				
+
           }
     });
 
