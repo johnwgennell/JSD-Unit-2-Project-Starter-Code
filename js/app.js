@@ -20,7 +20,7 @@ $('body').on('click', '#newsSource li', function(){
 $(document).ready(function(){
 // Initializing request for RSS feed on click of the id #search
     $('body').on('click', '#search', function(){
-// Show loader while app is loading and hide it when user selects the "X" button
+// Show loader while app is loading and hide it if user selects the "X" button
       $("#popUp").removeClass('hidden');
       $("#popUp").click(function() {
         $("#popUp").addClass('hidden');
@@ -32,23 +32,23 @@ $(document).ready(function(){
     	});
     });
 
-// Conditional to select correct feed based off of user input
+// Conditional to request correct feed based off of user input
     var findRss = function(data) {
     	 	var rssSearch = $('#sourceName').text();
     	 	if (rssSearch === 'Digg') {
-    			populateDigg(data);
+    			diggRss(data);
 
     		} else if (rssSearch === 'Mashable') {
-    			populateMashable(data);
+    			mashableRss(data);
 
     		} else {
-    			populateReddit(data);
+    			redditRss(data);
     		}
-        $("#popUp").addClass('hidden'); // Sonyl, is this where I should put this?
+        $("#popUp").addClass('hidden');
   	}
 
 // Digg RSS feed
-    var populateDigg = function(data) {
+    var diggRss = function(data) {
     		var imageUrl = data.data.feed[0].content.media.images[0].url;
     	$('#main').html('');
     	for (var i = 0; i < 4; i ++ ) {
