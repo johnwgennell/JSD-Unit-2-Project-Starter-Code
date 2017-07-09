@@ -12,62 +12,61 @@ $(document).ready(function(){
 
 // Show the options from the body list in the dropdown search
   $('body').on('click', '#NewsSources li', function(){
-	var dropdownText = $(this).text();
-	$('#sourceName').text(dropdownText);
-	$(this).siblings().removeClass('selected');
-	$(this).addClass('selected');
+  	var dropdownText = $(this).text();
+  	$('#sourceName').text(dropdownText);
+  	$(this).siblings().removeClass('selected');
+  	$(this).addClass('selected');
 
-// Digg RSS feed
-    var diggFeed = {};
+  // Digg RSS feed
+      var diggFeed = {};
 
-    var request = $.ajax({
-        url:"https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json",
-        data: {status, feed}
-    });
-    
+      var request = $.ajax({
+          url:"https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json"
+      });
+      
       request.done(function(feed){
-          console.log(feed);
-          var rssDigg = status;
-          alert(status);
-          for(var i=0;i<feed.length;i++){
-    	 			console.log(feed[i]);
-    	 			var feedObjects = {
+        console.log(feed);
+        var rssDigg = status;
+        alert(status);
+        for(var i=0;i<feed.length;i++){
+  	 			console.log(feed[i]);
+  	 			var feedObjects = {
 
-            }
-          });
-        });
-
-//
-//
-//
-//
-//
-//
-//
-//
-
-// Mashable RSS feed
-    var mashableFeed = {};
-
-    var request = $.ajax({
-        url:"https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json",
-    });
-
-    request.done(function(feed) {
-      console.log(feed);
+          };
+        };
+      });
   });
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  /*
+  // Mashable RSS feed
+      var mashableFeed = {};
 
-// Reddit RSS feed
-    var redditFeed = {};
+      var request = $.ajax({
+          url:"https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json",
+      });
 
-    var request = $.ajax({
-        url:"https://www.reddit.com/top.json",
-    });
-
-    request.done(function(feed){
+      request.done(function(feed) {
         console.log(feed);
     });
 
+  // Reddit RSS feed
+      var redditFeed = {};
 
+      var request = $.ajax({
+          url:"https://www.reddit.com/top.json",
+      });
+
+      request.done(function(feed){
+          console.log(feed);
+      });
+
+  */
 
 });
