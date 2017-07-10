@@ -19,7 +19,7 @@ $('body').on('click', '#newsSource li', function(){
 
 $(document).ready(function(){
 // Initializing request for RSS feed on click of the id #search
-    $('body').on('click', '#search', function(){
+    $('body').on('click', '#newsSource', function(){
 // Show loader while app is loading and hide it if user selects the "X" button
       $("#popUp").removeClass('hidden');
       $("#popUp").click(function() {
@@ -49,8 +49,7 @@ $(document).ready(function(){
 
 // Digg RSS feed
     var diggRss = function(data) {
-    		var imageUrl = data.data.feed[0].content.media.images[0].url;
-    	$('#main').html('');
+  		var imageUrl = data.data.feed[0].content.media.images[0].url;
     	for (var i = 0; i < 4; i ++ ) {
     		var feed = data.data.feed[i];
     		var postInfo = {
@@ -62,6 +61,8 @@ $(document).ready(function(){
     			};
 
     		var articleHtml = compileHtml(postInfo);
+        console.log('html',articleHtml);
+        $('#main').empty();
     		$('#main').append(articleHtml);
 
     	 }
