@@ -24,8 +24,8 @@
             <a href="#"><h1>Feedr</h1></a>
             <nav>
               <ul>
-                <li><a href="#">News Source: <span id="sourceName">Source Name</span></a>
-                  <ul id="NewsSources">
+                <li><a href="#">Pick Your News Source:<span id="sourceName"> ↓</span></a>
+                  <ul id="newsSource">
                       <li><a href="#" data-grab="https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json">Digg</a></li>
                       <li><a href="#" data-grab="https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json">Mashable</a></li>
                       <li><a href="#" data-grab="https://www.reddit.com/top.json">Reddit</a></li>
@@ -47,67 +47,84 @@
             <p>
               Article description/content here.
             </p>
-            <a href="#" class="popUpAction" target="_blank">Read more from source</a>
+            <a href="#" class="popUpAction" target="_blank">Read more from this news source</a>
           </div>
         </div>
-        <!-- Template one -->
-        <script id="feedr_template" type="text/x-handlebars-template">
-          <section id="main" class="container">
+        <div class="body">
+
+          <!-- Template start -->
+          <script id="feedr_template" type="text/x-handlebars-template">
+            <section id="main" class="container">
+              <article class="article">
+                <section class="featuredImage">
+                  <img src="{{postImage}}" alt="" />
+                </section>
+                <section class="articleContent">
+                    <a href="{{postURL}}" target="_blank"><h3>{{postTitle}}</h3></a>
+                    <h6>{{postDescription}}</h6>
+                </section>
+                <section class="impressions">
+                  {{{numberOfImpressions}}}
+                </section>
+                <div class="clearfix"></div>
+              </article>
+            </script>
+            <!-- Template end -->
+
             <article class="article">
               <section class="featuredImage">
-                <img src="{{articleImage}}" alt="" />
+                <img src="images/loading-icon.png" alt="" />
               </section>
               <section class="articleContent">
-                  <a href="#"><h3>{{articleTitle}}</h3></a>
-                  <h6>Lifestyle</h6>
+                  <a href="#"><h3>Waiting for feed selection</h3></a>
+                  <h6>Article description (waiting)</h6>
               </section>
               <section class="impressions">
-                {{{numberOfImpressions}}}
+                0
               </section>
               <div class="clearfix"></div>
             </article>
-          </script>
-          <!-- Template one -->
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_2.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_2.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_1.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-        </section>
+            <article class="article">
+              <section class="featuredImage">
+                <img src="images/loading-icon.png" alt="" />
+              </section>
+              <section class="articleContent">
+                  <a href="#"><h3>Waiting for feed selection</h3></a>
+                  <h6>Article description (waiting)</h6>
+              </section>
+              <section class="impressions">
+                0
+              </section>
+              <div class="clearfix"></div>
+            </article>
+            <article class="article">
+              <section class="featuredImage">
+                <img src="images/loading-icon.png" alt="" />
+              </section>
+              <section class="articleContent">
+                  <a href="#"><h3>Waiting for article selection</h3></a>
+                  <h6>Article description (waiting)</h6>
+              </section>
+              <section class="impressions">
+                0
+              </section>
+              <div class="clearfix"></div>
+            </article>
+            <article class="article">
+              <section class="featuredImage">
+                <img src="images/loading-icon.png" alt="" />
+              </section>
+              <section class="articleContent">
+                  <a href="#"><h3>Waiting for article selection</h3></a>
+                  <h6>Article description (waiting)</h6>
+              </section>
+              <section class="impressions">
+                0
+              </section>
+              <div class="clearfix"></div>
+            </article>
+          </section>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" type="text/javascript" charset="utf-8" async defer></script>

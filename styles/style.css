@@ -185,6 +185,13 @@ nav ul ul li {
   margin-top: 65px;
 }
 
+/* Push Entire Page Body Down */
+.body {
+  margin-top: 50px;
+  padding: 0 200px 0 200px;
+}
+
+
 /* Individual Article Styling */
 .article {
   border-bottom: 1px solid #ccc;
