@@ -53,12 +53,12 @@ $(document).ready(function(){
     	for (var i = 0; i < 4; i ++ ) {
     		var feed = data.data.feed[i];
     		var postInfo = {
-    			postImage: feed.content.media.images[0].original_url,
-    			numberOfImpressions: feed.fb_shares.count,
-    			postDescription: feed.content.description,
-    			postTitle: feed.content.title_alt,
-    			postURL: feed.content.original_url
-    			};
+          postTitle: feed.content.title_alt,
+          postImage: feed.content.media.images[0].original_url,
+          postDescription: feed.content.description,
+          postURL: feed.content.original_url,
+          numberOfImpressions: feed.fb_shares.count
+    		};
 
     		var articleHtml = compileHtml(postInfo);
         console.log('html',articleHtml);
@@ -68,44 +68,49 @@ $(document).ready(function(){
     	 }
      }
 
-//
-//
-//
-//
-//
+// Reddit RSS feed
+     var redditRss = function(data) {
+     	$('#main').html('');
+     	var feedArray = data.data.children;
+     	for (var i = 0; i < feedArray.length; i ++ ) {
+     		var feed = data.data.children[i];
+     		var postInfo = {
+          postTitle: feed.data.title,
+          postImage: feed.data.thumbnail,
+          postDescription: '',
+          postURL: 'https://www.reddit.com/' + feed.data.permalink,
+     			numberOfImpressions: feed.data.ups
+     		};
 
-//       // request.done(function(feed){
-//       //     console.log(feed);
-//       //     var rssDigg = status;
-//       //     alert(status);
-//       //     for(var i=0;i<feed.length;i++){
-//     	//  			console.log(feed[i]);
-//     	//  			var feedObjects = {
-//       //
-//       //       }
-//       //     });
-//       //   });
-//
-// // Mashable RSS feed
-//     var mashableFeed = {};
-//
-//     var request = $.ajax({
-//         url:"https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json",
-//     });
-//
-//     request.done(function(feed) {
-//       console.log(feed);
-//   });
-//
-// // Reddit RSS feed
-//     var redditFeed = {};
-//
-//     var request = $.ajax({
-//         url:"https://www.reddit.com/top.json",
-//     });
-//
-//     request.done(function(feed){
-//         console.log(feed);
-//     });
+        var articleHtml = compileHtml(postInfo);
+        console.log('html',articleHtml);
+        $('#main').empty();
+    		$('#main').append(articleHtml);
+     		}
+     	}
 
+// Mashable RSS feed
+      var mashableRss = function(data) {
+      	$('#main').html('');
+      	var feedArray = data.new;
+      	for (var i = 0; i < feedArray.length; i ++ ) {
+      		var feed = data.new[i];
+      		var postInfo = {
+            postTitle: feed.title,
+            postImage: feed.image,
+            postDescription: feed.excerpt,
+            postURL: feed.link,
+      			numberOfImpressionsimpressions: feed.shares.total
+      		};
+
+          var articleHtml = compileHtml(postInfo);
+          console.log('html',articleHtml);
+          $('#main').empty();
+      		$('#main').append(articleHtml);
+       		}
+       	}
+
+
+
+//
 });
