@@ -28,12 +28,12 @@ $(document).ready(function(){
       var chosenFeed = $('#newsSource li.picked a').attr('data-grab');
     	var request = $.ajax({
     		url: chosenFeed,
-    		success: findRss
+    		success: getRss
     	});
     });
 
 // Conditional to request correct feed based off of user input
-    var findRss = function(data) {
+    var getRss = function(data) {
     	 	var rssSearch = $('#sourceName').text();
     	 	if (rssSearch === 'Digg') {
     			diggRss(data);
@@ -100,7 +100,7 @@ $(document).ready(function(){
             postImage: feed.image,
             postDescription: feed.excerpt,
             postURL: feed.link,
-      			numberOfImpressionsimpressions: feed.shares.total
+      			numberOfImpressions: feed.shares.total
       		};
 
           var articleHtml = compileHtml(postInfo);
@@ -110,6 +110,11 @@ $(document).ready(function(){
        		}
        	}
 
+        $.ajax({
+          url: 'https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json',
+          // Default feed
+          success: mashableRss
+        });
 
 
 //
