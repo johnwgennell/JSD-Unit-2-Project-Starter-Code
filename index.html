@@ -11,7 +11,25 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      </script> -->
+      <!-- Template start -->
+        <script id="feedr_template" type="text/x-handlebars-template">
+          <section id="main" class="container">
+            <article class="article">
+              <section class="featuredImage">
+                <img src="{{postImage}}" alt="{{postTitle}}"/>
+              </section>
+              <section class="articleContent">
+                  <a href="{{postURL}}" target="_blank"><h3>{{postTitle}}</h3></a>
+                  <h6>{{postDescription}}</h6>
+              </section>
+              <section class="impressions">
+                {{{numberOfImpressions}}}
+              </section>
+              <div class="clearfix"></div>
+            </article>
+          </section>
+        </script>
+        <!-- Template end -->
 
     </head>
 
@@ -51,80 +69,8 @@
           </div>
         </div>
         <div class="body">
-        <!-- Template start -->
-          <script id="feedr_template" type="text/x-handlebars-template">
-            <section class="container">
-              <article class="article">
-                <section class="featuredImage">
-                  <img src="{{postImage}}" alt="" />
-                </section>
-                <section class="articleContent">
-                    <a href="{{postURL}}" target="_blank"><h3>{{postTitle}}</h3></a>
-                    <h6>{{postDescription}}</h6>
-                </section>
-                <section class="impressions">
-                  {{{numberOfImpressions}}}
-                </section>
-                <div class="clearfix"></div>
-              </article>
-            </section>
-          </script>
-          <!-- Template end -->
         <section id="main">
-            <article class="article">
-              <section class="featuredImage">
-                <img src="images/loading-icon.png" alt="" />
-              </section>
-              <section class="articleContent">
-                  <a href="#"><h3>Waiting for feed selection</h3></a>
-                  <h6>Article description (waiting)</h6>
-              </section>
-              <section class="impressions">
-                0
-              </section>
-              <div class="clearfix"></div>
-            </article>
-            <article class="article">
-              <section class="featuredImage">
-                <img src="images/loading-icon.png" alt="" />
-              </section>
-              <section class="articleContent">
-                  <a href="#"><h3>Waiting for feed selection</h3></a>
-                  <h6>Article description (waiting)</h6>
-              </section>
-              <section class="impressions">
-                0
-              </section>
-              <div class="clearfix"></div>
-            </article>
-            <article class="article">
-              <section class="featuredImage">
-                <img src="images/loading-icon.png" alt="" />
-              </section>
-              <section class="articleContent">
-                  <a href="#"><h3>Waiting for article selection</h3></a>
-                  <h6>Article description (waiting)</h6>
-              </section>
-              <section class="impressions">
-                0
-              </section>
-              <div class="clearfix"></div>
-            </article>
-            <article class="article">
-              <section class="featuredImage">
-                <img src="images/loading-icon.png" alt="" />
-              </section>
-              <section class="articleContent">
-                  <a href="#"><h3>Waiting for article selection</h3></a>
-                  <h6>Article description (waiting)</h6>
-              </section>
-              <section class="impressions">
-                0
-              </section>
-              <div class="clearfix"></div>
-            </article>
-          </section>
-        </div>
+        </section>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" type="text/javascript" charset="utf-8" async defer></script>
