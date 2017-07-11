@@ -50,7 +50,9 @@ $(document).ready(function(){
 // Digg RSS feed
     var diggRss = function(data) {
   		var imageUrl = data.data.feed[0].content.media.images[0].url;
-    	for (var i = 0; i < 4; i ++ ) {
+	$('#main').html('');
+	var feedArray = data.data.feed;   
+    	for (var i = 0; i < feedArray.length; i ++ ) {
     		var feed = data.data.feed[i];
     		var postInfo = {
           postTitle: feed.content.title_alt,
@@ -60,10 +62,10 @@ $(document).ready(function(){
           numberOfImpressions: feed.fb_shares.count
     		};
 
-    		var articleHtml = compileHtml(postInfo);
+    	var articleHtml = compileHtml(postInfo);
         console.log('html',articleHtml);
         $('#main').empty();
-    		$('#main').append(articleHtml);
+    	$('#main').append(articleHtml);
 
     	 }
      }
@@ -85,7 +87,7 @@ $(document).ready(function(){
         var articleHtml = compileHtml(postInfo);
         console.log('html',articleHtml);
         $('#main').empty();
-    		$('#main').append(articleHtml);
+    	$('#main').append(articleHtml);
      		}
      	}
 
@@ -100,13 +102,13 @@ $(document).ready(function(){
             postImage: feed.image,
             postDescription: feed.excerpt,
             postURL: feed.link,
-      			numberOfImpressions: feed.shares.total
+      	    numberOfImpressions: feed.shares.total
       		};
 
           var articleHtml = compileHtml(postInfo);
           console.log('html',articleHtml);
           $('#main').empty();
-      		$('#main').append(articleHtml);
+      	  $('#main').append(articleHtml);
        		}
        	}
 
